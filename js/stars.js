@@ -207,22 +207,36 @@ function animate() {
 
 init()
 animate()
-document.addEventListener('DOMContentLoaded', function() {
-    var audio = new Audio();
-    audio.src = './music/music.mp3'; // Ruta relativa al archivo de audio local
+ // Obtener elementos del DOM
+ const modal = document.getElementById('myModal');
+ const closeModalBtn = modal.querySelector('.close');
+ const botonSi = document.getElementById('botonSi');
+ const botonNo = document.getElementById('botonNo');
+ const audio = document.getElementById('audio');
 
-    console.log('Ruta del audio:', audio.src); // Verifica la ruta del archivo en la consola
-    console.log('Estado del audio:', audio.readyState); // Verifica el estado de carga del audio
+ // Mostrar el modal al cargar la página
+ window.addEventListener('DOMContentLoaded', function() {
+     modal.style.display = 'flex';
+ });
 
-    audio.autoplay = true;
-    audio.loop = true;
+ // Ocultar el modal al hacer clic en la X o fuera del modal
+ closeModalBtn.addEventListener('click', function() {
+     modal.style.display = 'none';
+ });
 
-    audio.addEventListener('canplay', function() {
-        console.log('El audio está listo para reproducirse.');
-        audio.play(); // Intenta reproducir el audio cuando esté listo
-    });
+ window.addEventListener('click', function(event) {
+     if (event.target === modal) {
+         modal.style.display = 'none';
+     }
+ });
 
-    audio.addEventListener('error', function(e) {
-        console.error('Error al cargar el audio:', e);
-    });
-});
+ // Reproducir el audio al hacer clic en el botón "Sí" dentro del modal
+ botonSi.addEventListener('click', function() {
+     modal.style.display = 'none'; // Ocultar el modal
+     audio.play(); // Reproducir el audio
+ });
+
+ // Cerrar el modal sin reproducir el audio al hacer clic en el botón "No"
+ botonNo.addEventListener('click', function() {
+     modal.style.display = 'none'; // Ocultar el modal
+ });
