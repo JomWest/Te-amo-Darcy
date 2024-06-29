@@ -106,7 +106,7 @@ font-size: 30px;
 	position: absolute;
 	display: table;
 	vertical-align: middle;
-	top: 20%;
+	top: 15%;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -120,7 +120,7 @@ font-size: 30px;
 	right: 0;
 	margin: auto;
 	width:35%;
-	margin-top: -40px;
+	margin-top: -80px;
 	height: 100%;
 
 }
