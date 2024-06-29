@@ -207,3 +207,22 @@ function animate() {
 
 init()
 animate()
+document.addEventListener('DOMContentLoaded', function() {
+    var audio = new Audio();
+    audio.src = './music/music.mp3'; // Ruta relativa al archivo de audio local
+
+    console.log('Ruta del audio:', audio.src); // Verifica la ruta del archivo en la consola
+    console.log('Estado del audio:', audio.readyState); // Verifica el estado de carga del audio
+
+    audio.autoplay = true;
+    audio.loop = true;
+
+    audio.addEventListener('canplay', function() {
+        console.log('El audio está listo para reproducirse.');
+        audio.play(); // Intenta reproducir el audio cuando esté listo
+    });
+
+    audio.addEventListener('error', function(e) {
+        console.error('Error al cargar el audio:', e);
+    });
+});

@@ -16,7 +16,7 @@ function showImage(){
 
 function play(){
 	if(t == 0){
-		myImage.setAttribute("src", "");
+		myImage.setAttribute("src", "pic/pic1.png");
 		myTxt.innerHTML = "";
 		imageIndex = 0;
 		clearInterval(showImageInterval);
